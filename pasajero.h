@@ -11,8 +11,8 @@
 #define	PASAJERO_H
 
 struct pasajero {
-    char dni[9];
-    char nombre[20];
+    char dni[10];
+    char nombre[50];
     char aerolinea[50];
     char tipoAvion[10];
     char fecha[10];
@@ -30,8 +30,8 @@ elementoPasajero *inserta_vaciaP(elementoPasajero *elemento){
     elementoPasajero *primero, *inserta;
     primero = NULL;
     inserta =(elementoPasajero*) malloc(sizeof(elementoPasajero));
-    strncpy(inserta->dni,elemento->dni,9);
-    strncpy(inserta->nombre,elemento->nombre,20);
+    strncpy(inserta->dni,elemento->dni,10);
+    strncpy(inserta->nombre,elemento->nombre,50);
     strncpy(inserta->aerolinea,elemento->aerolinea,50);
     strncpy(inserta->tipoAvion,elemento->tipoAvion,10);
     inserta->siguiente=NULL;
@@ -47,8 +47,8 @@ elementoPasajero *inserta_vaciaP(elementoPasajero *elemento){
 elementoPasajero *insertaP(elementoPasajero *primero, elementoPasajero *elemento){
     elementoPasajero *insertar;
     insertar = (elementoPasajero*)malloc(sizeof(elementoPasajero));
-    strncpy(insertar->dni,elemento->dni,9);
-    strncpy(insertar->nombre,elemento->nombre,20);
+    strncpy(insertar->dni,elemento->dni,10);
+    strncpy(insertar->nombre,elemento->nombre,50);
     strncpy(insertar->aerolinea,elemento->aerolinea,50);
     strncpy(insertar->tipoAvion,elemento->tipoAvion,10);
     insertar->siguiente = primero;
@@ -61,7 +61,7 @@ elementoPasajero *insertaP(elementoPasajero *primero, elementoPasajero *elemento
  * Función que muestra los elementos de la lista
  */
 
-void mostrarlistaPasajeros(elementoPasajero *primero){
+void mostrarlistaP(elementoPasajero *primero){
     elementoPasajero *aux;
     aux = primero;
     while (aux != NULL){

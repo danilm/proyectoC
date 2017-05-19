@@ -44,6 +44,8 @@ elementoVuelo* tratarfichero(char* nombre_fichero, int buffer){
     char *item;
     char token[6];
     elementoVuelo *primero,*insertar;
+    primero = NULL;
+    insertar =(elementoVuelo*) malloc(sizeof(elementoVuelo));
     int contador = 0;
     int lineaLeida=1;
     
