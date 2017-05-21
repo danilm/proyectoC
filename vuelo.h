@@ -58,6 +58,12 @@ elementoVuelo *insertaV(elementoVuelo *primero, elementoVuelo *elemento){
     return primero;
 }
 
+/**
+ * Función que busca la aerolinea 
+ * @param primero
+ * @param aerolinea
+ * @return 
+ */
 elementoVuelo *buscarAerolinea(elementoVuelo *primero, char *aerolinea){
     return primero;
 }
@@ -74,6 +80,7 @@ void mostrarlistaVuelo(elementoVuelo *primero){
         printf("aerolinea:%s\n", aux->aerolinea);
         printf("tipoAvion:%s\n", aux->tipoAvion);
         printf("numPasajeros:%i\n", aux->numPasajeros);
+        mostrarlista(aux->listadoDNI);
         aux=aux->siguiente;
     }
 }

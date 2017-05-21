@@ -11,7 +11,7 @@
 #define	LISTADNI_H
 
 struct listaDNI{
-    char dni[9];
+    char dni[10];
     struct listaDNI *siguiente;
 };
 
@@ -24,7 +24,7 @@ elemento *inserta_vacia(char *nuevoDNI){
     elemento *primero, *inserta;
     primero = NULL;
     inserta =(elemento*) malloc(sizeof(elemento));
-    strncpy(inserta ->dni, nuevoDNI, 9);
+    strncpy(inserta ->dni, nuevoDNI, 10);
     inserta->siguiente=NULL;
     primero = inserta;
     return primero;
@@ -35,9 +35,10 @@ elemento *inserta_vacia(char *nuevoDNI){
  */
 
 elemento *inserta(elemento *primero, char *nuevoDNI){
+    
     elemento *insertar;
     insertar = (elemento*)malloc(sizeof(elemento));
-    strncpy(insertar->dni,nuevoDNI,9);
+    strncpy(insertar->dni,nuevoDNI,10);
     insertar->siguiente = primero;
     primero = insertar;
     return primero;
@@ -50,7 +51,7 @@ void mostrarlista(elemento *primero){
     elemento *aux;
     aux = primero;
     while (aux != NULL){
-        printf("%s\n", aux->dni);
+        printf("DNI:%s\n", aux->dni);
         aux=aux->siguiente;
     }
 }
