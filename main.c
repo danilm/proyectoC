@@ -45,15 +45,17 @@ int main(int argc, char** argv) {
     //Por cada ocurrencia, obtenemos el DNI y lo metemos en el vector de DNI's
     //Al finalizar la busqueda de cada ocurrencia, apuntamos a ese vector de DNI's y
     //Volvemos a realizar la misma búsqueda hasta que no queden elementos en el vector Vuelos
-    dni=(elemento*) malloc(sizeof(elemento));
+    
     auxPasajeros=(elementoPasajero*) malloc(sizeof(elementoPasajero));
     auxVuelos=(elementoVuelo*) malloc(sizeof(elementoVuelo));
     auxVuelos = vectorVuelos;
-    auxPasajeros = vectorPasajeros;
-    printf("La direccion de memoria de *auxVuelos es: %p\n",auxVuelos);
-    printf("La direccion de memoria de *vectorVuelos es: %p\n",vectorVuelos);
+    
     printf("Componiendo estructura...\n");
     while (auxVuelos != NULL){
+        dni=(elemento*) malloc(sizeof(elemento));
+       
+        
+        auxPasajeros = vectorPasajeros;
         strncpy(aerolinea,auxVuelos->aerolinea,50);
         printf("Buscando aerolina: %s...\n",aerolinea);
         //Buscamos los DNI's que tenga esa aerolinea
@@ -63,19 +65,24 @@ int main(int argc, char** argv) {
                 printf("Encontrado DNI: %s\n", auxPasajeros->dni);
                 if (primero != 0){
                     dni=inserta(dni,auxPasajeros->dni);
-                    primero++;
+                    
+                    
                 } else {
+                    primero++;
                     dni=inserta_vacia(auxPasajeros->dni);
+                    
                 }
             }
             auxPasajeros=auxPasajeros->siguiente;
         }
         //Ahora metemos el DNI dentro de la estructura del vuelo
+        
+        mostrarlista(dni);
         auxVuelos->listadoDNI=dni;
         auxVuelos=auxVuelos->siguiente;
         
     }
-    
+    //auxVuelos = vectorVuelos;
     //Ya tenemos todo, ahora hay que ir generando los informes pertinentes
     //Paso cuatro: generar informe con el listado de los vuelos en los que no viajan clientes de la operadora
     printf("Generando informe...\n");
