@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
             printf("##tipoAvion:%s\n", aux->tipoAvion);
             printf("##numPasajeros:%i\n", aux->numPasajeros);
             printf("*#####*\n");
-        }
+        } 
         aux=aux->siguiente;
         
     }
@@ -122,10 +122,26 @@ int main(int argc, char** argv) {
     printf("Nombre de la Aerolinea con más clientes:%s con %i clientes en total.\n", aerolineaMax,maxnumClientes);
     //mostrarlistaP(vectorPasajeros);
     //mostrarlistaVuelo(vectorVuelos);
+    printf("***************************\n");
+    printf("Lista Completa de DNI's:\n");
+    elementoVuelo *auxDNI=(elementoVuelo*) malloc(sizeof(elementoVuelo));
+    auxDNI = vectorVuelos;
+    while (auxDNI != NULL){
+        
+        if (auxDNI->listadoDNI != NULL){
+            listarDNI(auxDNI->listadoDNI);
+        } 
+        auxDNI=auxDNI->siguiente;
+        
+    }
     //mostrarlista(dni);
+    //listarDNI(dni);
+    printf("***************************\n");
+    
     free(auxPasajeros);
     free(auxVuelos);
     free(aux);
+    free(auxDNI);
     free(dni);
     free(vectorVuelos);
     free(vectorPasajeros);

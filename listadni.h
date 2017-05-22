@@ -55,5 +55,35 @@ void mostrarlista(elemento *primero){
         aux=aux->siguiente;
     }
 }
+
+void buscarElemento(elemento *primero, char *dnibuscar){
+    elemento *aux;
+    int numElementos = 0;
+    aux = primero;
+    while (aux != NULL){
+        
+        if (strcmp(aux->dni,dnibuscar)==0){
+            numElementos++;
+            
+        }
+        aux=aux->siguiente;
+    }
+    if (numElementos > 1){
+        printf("DNI:%s un total de %i veces\n", dnibuscar, numElementos);
+    }
+    
+}
+
+void listarDNI(elemento *primero){
+    elemento *aux;
+    aux = primero;
+    char dnibuscar[10];
+    while (aux != NULL){
+        strncpy(dnibuscar,aux->dni,10);
+        buscarElemento(aux,dnibuscar);
+        aux=aux->siguiente;
+    }
+}
+
 #endif	/* LISTADNI_H */
 
