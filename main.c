@@ -65,12 +65,12 @@ int main(int argc, char** argv) {
         numclientes = 0;
         auxPasajeros = vectorPasajeros;
         strncpy(aerolinea,auxVuelos->aerolinea,50);
-        printf("Buscando aerolina: %s...\n",aerolinea);
+        //printf("Buscando aerolina: %s...\n",aerolinea);
         //Buscamos los DNI's que tenga esa aerolinea
         while (auxPasajeros != NULL){
-            printf("Aerolina del fichero de pasajeros: %s\n",auxPasajeros->aerolinea);
+            //printf("Aerolina del fichero de pasajeros: %s\n",auxPasajeros->aerolinea);
             if (strcmp(auxPasajeros->aerolinea,aerolinea)==0){
-                printf("Encontrado DNI: %s\n", auxPasajeros->dni);
+                //printf("Encontrado DNI: %s\n", auxPasajeros->dni);
                 if (primero != 0){
                     dni=inserta(dni,auxPasajeros->dni);
                     numclientes++;
@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
                 strncpy(aerolineaMax, aerolinea, 50);
                 maxnumClientes = numclientes;
             }
-            mostrarlista(dni);
+            //mostrarlista(dni);
             auxVuelos->listadoDNI=dni;
         }
         auxVuelos=auxVuelos->siguiente;
@@ -108,13 +108,15 @@ int main(int argc, char** argv) {
     while (aux != NULL){
         
         if (aux->listadoDNI == NULL){
-            printf("idVuelo:%s\n", aux->idVuelo);
-            printf("operadora:%s\n", aux->operadora);
-            printf("aerolinea:%s\n", aux->aerolinea);
-            printf("tipoAvion:%s\n", aux->tipoAvion);
-            printf("numPasajeros:%i\n", aux->numPasajeros);
+            printf("##idVuelo:%s\n", aux->idVuelo);
+            printf("##operadora:%s\n", aux->operadora);
+            printf("##aerolinea:%s\n", aux->aerolinea);
+            printf("##tipoAvion:%s\n", aux->tipoAvion);
+            printf("##numPasajeros:%i\n", aux->numPasajeros);
+            printf("*#####*\n");
         }
         aux=aux->siguiente;
+        
     }
     printf("***************************\n");
     printf("Nombre de la Aerolinea con más clientes:%s con %i clientes en total.\n", aerolineaMax,maxnumClientes);
