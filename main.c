@@ -28,9 +28,12 @@ elementoVuelo *auxVuelos;
 int numVuelos = 0;
 int insertado = 0;
 int primero = 0;
+int numclientes = 0;
+int maxnumClientes = 0;
 char* nombre_fichero = "eurocontrol.txt";
 char* fichero_operadora = "operadora.txt";
 char aerolinea[50];
+char aerolineaMax[50];
 
 int main(int argc, char** argv) {
     //Nuesta operadora es UCAAVILA.
@@ -59,6 +62,7 @@ int main(int argc, char** argv) {
         dni=(elemento*) malloc(sizeof(elemento));
         insertado = 0;
         primero = 0;
+        numclientes = 0;
         auxPasajeros = vectorPasajeros;
         strncpy(aerolinea,auxVuelos->aerolinea,50);
         printf("Buscando aerolina: %s...\n",aerolinea);
@@ -69,19 +73,23 @@ int main(int argc, char** argv) {
                 printf("Encontrado DNI: %s\n", auxPasajeros->dni);
                 if (primero != 0){
                     dni=inserta(dni,auxPasajeros->dni);
-                    
+                    numclientes++;
                     
                 } else {
                     primero++;
                     insertado = 1;
                     dni=inserta_vacia(auxPasajeros->dni);
-                    
+                    numclientes++;
                 }
             }
             auxPasajeros=auxPasajeros->siguiente;
         }
         //Ahora metemos el DNI dentro de la estructura del vuelo siempre que haya alguno, claro
         if (insertado == 1){
+            if (numclientes > maxnumClientes){
+                strncpy(aerolineaMax, aerolinea, 50);
+                maxnumClientes = numclientes;
+            }
             mostrarlista(dni);
             auxVuelos->listadoDNI=dni;
         }
@@ -109,6 +117,7 @@ int main(int argc, char** argv) {
         aux=aux->siguiente;
     }
     printf("***************************\n");
+    printf("Nombre de la Aerolinea con más clientes:%s con %i clientes en total.\n", aerolineaMax,maxnumClientes);
     //mostrarlistaP(vectorPasajeros);
     //mostrarlistaVuelo(vectorVuelos);
     //mostrarlista(dni);
