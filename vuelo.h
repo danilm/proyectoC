@@ -58,15 +58,7 @@ elementoVuelo *insertaV(elementoVuelo *primero, elementoVuelo *elemento){
     return primero;
 }
 
-/**
- * Función que busca la aerolinea 
- * @param primero
- * @param aerolinea
- * @return 
- */
-elementoVuelo *buscarAerolinea(elementoVuelo *primero, char *aerolinea){
-    return primero;
-}
+
 /*
  * Función que muestra los elementos de la lista
  */

@@ -19,6 +19,7 @@ int obtenerNumLineasP(char* nombre_fichero, int buffer){
     //Al ser un fichero de texto lo abrimos con rt
     if ((ficheroPasajero = fopen(nombre_fichero,"rt")) == NULL){
         printf("No se puedo abrir el fichero %s\n", nombre_fichero);
+        exit(1);
     } else {
         printf("Leyendo fichero...\n");
         //Vamos leyendo el archivo de texto sabiendo que en total hay 144 caracteres por línea
@@ -46,6 +47,7 @@ elementoPasajero* tratarficheroP(char* nombre_fichero, int buffer){
     
     if ((ficheroPasajero = fopen(nombre_fichero,"rt")) == NULL){
         printf("No se puedo abrir el fichero %s\n", nombre_fichero);
+        exit(1);
     } else {
         
         //Vamos leyendo el archivo de texto sabiendo que en total hay 99 caracteres por línea

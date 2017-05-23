@@ -56,7 +56,7 @@ void mostrarlista(elemento *primero){
     }
 }
 
-void buscarElemento(elemento *primero, char *dnibuscar){
+void buscarElemento(FILE *fichero,elemento *primero, char *dnibuscar){
     elemento *aux;
     int numElementos = 0;
     aux = primero;
@@ -69,18 +69,18 @@ void buscarElemento(elemento *primero, char *dnibuscar){
         aux=aux->siguiente;
     }
     if (numElementos > 1){
-        printf("DNI:%s un total de %i veces\n", dnibuscar, numElementos);
+        fprintf(fichero,"DNI:%s un total de %i veces\n", dnibuscar, numElementos);
     }
     
 }
 
-void listarDNI(elemento *primero){
+void listarDNI(FILE *fichero, elemento *primero){
     elemento *aux;
     aux = primero;
     char dnibuscar[10];
     while (aux != NULL){
         strncpy(dnibuscar,aux->dni,10);
-        buscarElemento(aux,dnibuscar);
+        buscarElemento(fichero,aux,dnibuscar);
         aux=aux->siguiente;
     }
 }

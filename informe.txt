@@ -1,0 +1,22 @@
+**** Informe Generado ****:
+Listado de vuelos sin clientes de nuestra operadora UCAVILA:
+##idVuelo:8956
+##operadora:BRITISH
+##aerolinea:AIRWAYS
+##tipoAvion:AIRBUS
+##numPasajeros:240
+*#####*
+##idVuelo:2223
+##operadora:AIRITALIA
+##aerolinea:ITAIL
+##tipoAvion:AIRBUS
+##numPasajeros:24
+*#####*
+***************************
+Nombre de la Aerolinea con más clientes:AIRHALCON con 12 clientes en total.
+***************************
+DNI's más usados:
+DNI:27343516N un total de 3 veces
+DNI:97123456N un total de 2 veces
+DNI:27343516N un total de 2 veces
+DNI:72234568X un total de 2 veces
